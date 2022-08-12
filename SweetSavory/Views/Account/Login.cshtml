@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.ViewModels
+
+@model LoginViewModel
+
+<div class="container">
+  <h2 class="text-center">Log in with your account</h2>
+  <hr />
+  <div class="d-flex flex-row justify-content-center">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { required="required"})
+
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { required="required"})
+
+        <input type="submit" value="Log in" class="fancyBtn" />
+    }
+  </div>
+</div>

@@ -1,0 +1,111 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+div#footer {
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  color:#CCC;
+  background:rgb(6, 46, 46);
+  padding:8px;
+  text-align: center;
+}
+
+div#header {
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  color:#CCC;
+  background-color: rgb(6, 46, 46);
+  padding:8px;
+  text-align: center;
+}
+
+body {
+  /* background-image: url("");
+  background-repeat: no-repeat;
+  background-position: absolute;
+  background-size: cover; */
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(23, 22, 22);
+}
+
+h1 {
+  font-size: 48px;
+  font-family: 'Fjalla One', sans-serif;
+  color: rgb(90, 44, 44);
+}
+
+h2 {
+  font-size: 36px;
+  font-family: 'Fjalla One', sans-serif;
+  color:rgb(6, 46, 46);
+}
+
+h3 {
+  font-size: 22px;
+  font-family: 'Fjalla One', sans-serif;
+  color: rgb(90, 44, 44);
+}
+
+a:link {
+  color:  rgb(90, 44, 44);
+}
+
+a:visited {
+  color:  rgb(90, 44, 44);
+}
+
+a:hover {
+  color:  rgb(90, 44, 44);
+}
+
+a:active{
+  color:  rgb(90, 44, 44);
+}
+
+.container {
+  background-color: whitesmoke;
+  border: 1px solid rgb(6, 46, 46);
+  margin-top: 200px;
+  margin-bottom: 200px;
+  padding: 100px;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.card {
+  background-color: whitesmoke;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 25px;
+  border: 0px;
+}
+
+.fancyBtn {
+  background-color:  rgb(6, 46, 46);
+  color: white;
+  padding: 5px;
+  border-radius: 1rem;
+  width: 200px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.fancyBtn a:link {
+  color: white;
+}
+
+.fancyBtn a:visited {
+  color:white;
+}
+
+.fancyBtn a:hover {
+  color: white;
+}
+
+.fancyBtn a:active {
+  color: white;
+}

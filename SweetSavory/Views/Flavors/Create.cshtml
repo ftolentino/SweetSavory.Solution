@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetSavory.Models.Flavor
+
+<div class="container my-4">
+  <h4 class="text-center">Add a new Flavor</h4>
+  <hr />
+  <div class="d-flex flex-row justify-content-center m-2">
+    @using (Html.BeginForm())
+    {
+        @Html.Label("Flavor Name: ", null, new { @class ="mx-2"})
+        @Html.TextBoxFor(model => model.Name, null, new { @class ="mx-2"})
+
+        @Html.Label("Select Treat")
+        @Html.DropDownList("TreatId")
+
+        <input type="submit" value="Add new flavor" class="fancyBtn" />
+    }
+  </div>
+  <div class="d-flex flex-row justify-content-center">
+    <p class="fancyBtn">@Html.ActionLink("Show all flavors", "Index")</p>
+  </div>
+</div>

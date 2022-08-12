@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+
+@model SweetSavory.Models.Treat
+
+<div class="container">
+  <h4 class="text-center my-4">Add a new treat</h4>
+  <hr />
+  <div class="d-flex flex-row justify-content-center m-2">
+    @using (Html.BeginForm())
+    {
+      @Html.LabelFor(model => model.Name, null, new { @class ="mx-2"})
+      @Html.TextBoxFor(model => model.Name, null, new { @class ="mx-2"})
+      <input type="submit" value="Add new treat" class="fancyBtn" />
+    }
+  </div>
+  <div class="d-flex flex-row justify-content-center">
+    <p>@Html.ActionLink("Show all treats", "Index")</p>
+  </div>
+</div>

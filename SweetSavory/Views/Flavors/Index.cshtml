@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.Models;
+@model IEnumerable<SweetSavory.Models.Flavor>
+
+<h1>Flavors for @User.Identity.Name</h1>
+
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Flavor flavor in Model)
+    {
+      <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
+    }
+  </ul>
+} 
+else
+{
+  <h3>No flavors match this search!</h3>
+}
+
+<p class="fancyBtn">@Html.ActionLink("Home", "Index", "Home", "Flavors")</p>
+<p class="fancyBtn">@Html.ActionLink("Add a Flavor", "Create", "Flavors")</p>

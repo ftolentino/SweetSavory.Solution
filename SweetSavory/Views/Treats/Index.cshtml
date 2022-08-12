@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.Models;
+@model List<SweetSavory.Models.Treat>;
+
+<div class="container my-4">
+  <h1 class="text-center my-4">Treats</h1>
+  <hr />
+
+  <div class="d-flex flex-column align-items-center my-4">
+    <div class="d-flex flex-column align-items-start">
+      @if (@Model.Count == 0)
+      {
+        <h3>No Treats have been added yet!</h3>
+      } 
+
+
+        @foreach (Treat treat in Model)
+        {
+          <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })
+        </li>
+        }
+    </div>
+    <div class="d-flex flex-row justify-content-center my-4">
+      <p class="fancyBtn mx-3">@Html.ActionLink("Add Treat", "Create", "Treats")</p> 
+      <p class="fancyBtn mx-3">@Html.ActionLink("Home", "Index", "Home")</p>
+    </div>
+  </div>
+</div>

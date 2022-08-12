@@ -1,8 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+  Layout = "_Layout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container my-4">
+  <div class="h-100 d-flex flex-column align-items-center"></div>
+    <h1 class="text-center my-4">Welcome Pierre's Sweet and Savory Treats!</h1>
+    <div class="d-flex flex-row justify-content-center my-4">
+      @* <p class="fancyBtn mx-3">@Html.ActionLink("See all recipes", "Index", "Recipes")</p>
+      <p class="fancyBtn mx-3">@Html.ActionLink("Add a Recipe", "Create", "Recipes")</p>
+      <p class="fancyBtn mx-3">@Html.ActionLink("Create an account", "Index", "Account")</p>
+      <p class="fancyBtn mx-3">@Html.ActionLink("Search", "ShowSearch", "Recipes")</p> *@
+    </div>
 </div>

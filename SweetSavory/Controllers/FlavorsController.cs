@@ -95,43 +95,43 @@ namespace SweetSavory.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult AddTag(int id)
-    // {
-    //   var thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
-    //   ViewBag.TagId = new SelectList(_db.Tags, "TagId", "Name");
-    //   return View(thisRecipe);
-    // }
+    public ActionResult AddTreat(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      return View(thisFlavor);
+    }
 
-    // [HttpPost]
-    // public ActionResult AddTag(Recipe recipe, int TagId)
-    // {
-    //   if (TagId !=0)
-    //   {
-    //     _db.TagRecipe.Add(new TagRecipe() { TagId = TagId, RecipeId = recipe.RecipeId }); 
-    //     _db.SaveChanges();
-    //   }
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult AddTreat(Flavor flavor, int TreatId)
+    {
+      if (TreatId !=0)
+      {
+        _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId }); 
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
 
-    // [HttpPost]
-    // public ActionResult DeleteTag(int joinId)
-    // {
-    //   var joinEntry = _db.TagRecipe.FirstOrDefault(entry => entry.TagRecipeId == joinId);
-    //   _db.TagRecipe.Remove(joinEntry);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
-    // [HttpGet]
-    // public ActionResult ShowSearch()
-    // {
-    //   return View();
-    // }
+    [HttpPost]
+    public ActionResult DeleteTreat(int joinId)
+    {
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public ActionResult ShowSearch()
+    {
+      return View();
+    }
 
-    // [HttpPost]
-    // public ActionResult ShowSearch(string searchPhrase)
-    // {
-    //     List<Recipe> model = _db.Recipes.Where(p => p.Name.ToLower().Contains(searchPhrase.ToLower()) || p.Tag.Name.ToLower().Contains(searchPhrase.ToLower())).ToList(); 
-    //     return View("Index", model);
-    // }
+    [HttpPost]
+    public ActionResult ShowSearch(string searchPhrase)
+    {
+        List<Flavor> model = _db.Flavors.Where(p => p.Name.ToLower().Contains(searchPhrase.ToLower()) || p.Treat.Name.ToLower().Contains(searchPhrase.ToLower())).ToList(); 
+        return View("Index", model);
+    }
   }
 }

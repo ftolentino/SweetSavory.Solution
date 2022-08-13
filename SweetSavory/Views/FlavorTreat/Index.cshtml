@@ -1,0 +1,49 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.Models;
+
+<div class="container my-4">
+  <h1 class="text-center">A list of all treats and their flavors!</h1>
+  <hr />
+  <div class="d-flex flex-column align-items-center my-4">
+    <div class="d-flex flex-column align-items-start">    
+      @if (@Model.Count == 0)
+      {
+        <h3>No treats or flavors have been added yet.</h3>
+      }
+      else
+      {
+        Dictionary<string, List<string>> dic = new Dictionary<string, List<string>> ();
+        foreach (FlavorTreat flavortreat in Model)
+        {
+          string treatName = flavortreat.Treat.Name;
+          string flavorName = flavortreat.Flavor.Name;
+          if (dic.ContainsKey(treatName))
+          {
+            dic[treatName].Add(flavorName);
+          }
+          else
+          {
+            List<string> flavorList = new List<string>();
+            flavorList.Add(flavorName);
+            dic.Add(treatName, flavorList);
+          }
+        }
+
+        foreach (KeyValuePair<string, List<string>> kvp in dic)
+        {
+          <p><strong>@kvp.Key</strong></p>
+          <ol>
+          @foreach (string name in kvp.Value)
+          {
+            <li>@name</li>
+          }
+          </ol>
+        }
+      }
+    </div>
+  </div>
+  <hr />
+</div>

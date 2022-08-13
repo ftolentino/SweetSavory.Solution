@@ -5,21 +5,29 @@
 @using SweetSavory.Models;
 @model IEnumerable<SweetSavory.Models.Flavor>
 
-<h1>Flavors for @User.Identity.Name</h1>
+<div class="container my-4">
+  <h1>Flavors for @User.Identity.Name</h1>
+  <hr />
 
-@if (Model.Any())
-{
-  <ul>
-    @foreach (Flavor flavor in Model)
-    {
-      <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
-    }
-  </ul>
-} 
-else
-{
-  <h3>No flavors match this search!</h3>
-}
-
-<p class="fancyBtn">@Html.ActionLink("Home", "Index", "Home", "Flavors")</p>
-<p class="fancyBtn">@Html.ActionLink("Add a Flavor", "Create", "Flavors")</p>
+  <div class="d-flex flex-column align-items-center my-4">
+    <div class="d-flex flex-column align-items-start">
+      @if (Model.Any())
+      {
+        <ul>
+          @foreach (Flavor flavor in Model)
+          {
+            <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
+          }
+        </ul>
+      } 
+      else
+      {
+        <h3>No flavors match this search!</h3>
+      }
+    </div>
+    <div class="d-flex flex-row justify-content-center my-4">
+      <p class="fancyBtn">@Html.ActionLink("Home", "Index", "Home", "Flavors")</p>
+      <p class="fancyBtn">@Html.ActionLink("Add a Flavor", "Create", "Flavors")</p>
+    </div>
+  </div>
+</div>

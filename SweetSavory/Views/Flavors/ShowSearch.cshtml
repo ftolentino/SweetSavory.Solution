@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.Models;
+@model List<SweetSavory.Models.Flavor>;
+
+<div class="container">
+  <form action="/Flavors/ShowSearch" method="post"> 
+    <label for="searchPhrase">Search Phrase</label>
+    <input name="searchPhrase" id="searchPhrase" type="text">
+    <button type="submit">Search!</button>
+  </form>
+</div>

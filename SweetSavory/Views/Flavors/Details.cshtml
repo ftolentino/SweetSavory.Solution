@@ -1,0 +1,45 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetSavory.Models.Flavor
+
+<div class="container my-4">
+  <h2>Flavor Details</h2>
+  <hr />
+  <div class="d-flex flex-column align-items-center">
+    <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+    @if(@Model.JoinEntities.Count == 0)
+    {
+      <p>This flavor does not have any treats assigned</p>
+    }
+    else
+    {
+      <h4>Treats this flavor belongs to:</h4>
+      <ul>
+        <hr />
+        @foreach(var join in Model.JoinEntities)
+        {
+          <div class="d-flex flex-row justify-content-end">
+            <li>@join.Treat.Name</li>
+            @using (Html.BeginForm("DeleteTreat", "Flavors"))
+            {
+              @Html.Hidden("joinId", @join.FlavorTreatId)
+              <input type="submit" value="Delete" class="btn btn-danger mx-4"/>
+            }
+          </div>
+        <hr />
+        }
+      </ul>
+    }
+  </div>
+<hr />
+</div>
+  <div class="d-flex flex-row justify-content-center">
+    <p class="fancyBtn mx-2">@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
+    <p class="fancyBtn mx-2">@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })</p>
+    <p class="fancyBtn mx-2">@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
+    <p class="fancyBtn mx-2">@Html.ActionLink("Back to list", "Index")</p>
+  </div>
+</div>

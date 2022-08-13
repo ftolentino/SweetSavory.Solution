@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.Models;
+@model SweetSavory.Models.Flavor
+
+<h2>Add a Treat</h2>
+
+<h4>Add a treat to this flavor: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.Label("Select Tag")
+    @Html.DropDownList("TagId")
+
+    <input type="submit" value="Save" class="fancyBtn" />
+}
+
+<p class="fancyBtn">@Html.ActionLink("Back to list", "Index")</p>
